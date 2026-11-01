@@ -61,3 +61,7 @@ python momentum_backtest_clean.py
 ```
 
 The script generates a performance summary, a CSV results file and a portfolio growth chart.
+
+## Backtest Performance
+
+![ASX Momentum Strategy Performance](momentum%20chart.png)
