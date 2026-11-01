@@ -1,3 +1,7 @@
+# ASX Momentum Trading Strategy
+
+## Project Overview
+
 I built this project to explore momentum investing and get a better understanding of how trading strategies can be tested using Python.
 
 The strategy ranks ASX stocks based on their performance over the previous year, excluding the most recent month. I tested portfolios of 10, 20 and 30 stocks to see how the number of holdings affects returns and risk.
