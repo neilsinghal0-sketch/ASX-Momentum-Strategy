@@ -1,52 +1,10 @@
-# ASX Momentum Trading Strategy
+I built this project to explore momentum investing and get a better understanding of how trading strategies can be tested using Python.
 
-## Project Overview
+The strategy ranks ASX stocks based on their performance over the previous year, excluding the most recent month. I tested portfolios of 10, 20 and 30 stocks to see how the number of holdings affects returns and risk.
 
-This project develops and backtests a momentum-based investment strategy using historical Australian Securities Exchange (ASX) stock data.
+I also compared the results against the IOZ ETF, which provides exposure to the ASX 200.
 
-The objective is to investigate whether selecting stocks with strong historical momentum can outperform a broad Australian equity-market benchmark.
-
-The project compares equally weighted portfolios containing 10, 20 and 30 stocks against the iShares Core S&P/ASX 200 ETF (IOZ).
-
-## Strategy Methodology
-
-1. Download historical adjusted stock prices using Python and `yfinance`.
-2. Calculate approximately 12-month price momentum, excluding the most recent 21 trading days.
-3. Rank stocks according to their momentum scores.
-4. Select the highest-ranked stocks for each portfolio.
-5. Rebalance annually using signals from the previous trading day.
-6. Calculate compounded portfolio returns, incorporating illustrative transaction costs.
-
-Portfolio weights are initially equal and subsequently drift with market movements until the next rebalance.
-
-## Performance Metrics
-
-The backtest calculates:
-
-- **CAGR:** Compound annual growth rate.
-- **Annualised volatility:** Standard deviation of returns, scaled to one year.
-- **Sharpe ratio:** Risk-adjusted return, using a 0% risk-free rate for this illustration.
-- **Maximum drawdown:** Largest historical peak-to-trough portfolio decline.
-
-## Benchmark
-
-The strategy is compared against the IOZ ETF using adjusted historical prices, providing an approximate dividend-inclusive Australian equity-market benchmark.
-
-## Limitations
-
-This is an educational backtest, not a validated trading strategy.
-
-- The fixed stock universe introduces survivorship bias.
-- Historical prices may contain missing or inaccurate data.
-- Execution at closing prices is assumed.
-- Trading costs and market impact are simplified.
-- Historical performance does not predict future returns.
-
-## Technologies
-
-Python, pandas, NumPy, yfinance and Matplotlib.
-
-## Running the Project
+One limitation of this project is that it uses a fixed list of stocks, which can introduce survivorship bias. The results are therefore useful for exploring the strategy, but shouldn't be treated as evidence that it would outperform in real trading.
 
 Install dependencies:
 
@@ -65,3 +23,22 @@ The script generates a performance summary, a CSV results file and a portfolio g
 ## Backtest Performance
 
 ![ASX Momentum Strategy Performance](momentum%20chart.png)
+
+### Backtest Results (2015–2025)
+
+| Portfolio | CAGR | Sharpe Ratio |
+|---|---:|---:|
+| Top 10 Momentum | 14.12% | 0.8585 |
+| Top 20 Momentum | 12.55% | 0.8418 |
+| Top 30 Momentum | 11.69% | 0.8129 |
+| IOZ ETF Benchmark | 9.04% | 0.6625 |
+
+## What I Learned
+
+Working on this project helped me understand how momentum strategies are constructed and evaluated.
+
+I became more familiar with calculating portfolio returns, volatility, Sharpe ratios and maximum drawdowns. I also learned how important it is to account for transaction costs and avoid biases when backtesting.
+
+One thing I found interesting was how changing the number of stocks in a portfolio affected its performance and risk.
+
+I still want to improve the backtest by addressing survivorship bias and testing the strategy over different market conditions.
